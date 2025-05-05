@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Virtual Ilustrativo - Alto Padrão</title>
+  <!-- Pannellum CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; }
+    #panorama { width: 100%; height: 100%; }
+    .hotspot { background-color: rgba(255,255,255,0.7); border-radius: 50%; width: 24px; height: 24px; }
+  </style>
+</head>
+<body>
+  <div id="panorama"></div>
+
+  <!-- Pannellum JS -->
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <script>
+    pannellum.viewer('panorama', {
+      "default": {
+        "firstScene": "sala",
+        "sceneFadeDuration": 1000
+      },
+      "scenes": {
+        "sala": {
+          "title": "Sala de Estar",
+          "hfov": 110,
+          "pitch": 0,
+          "yaw": 180,
+          "type": "equirectangular",
+          "panorama": "https://pannellum.org/images/alma.jpg",
+          "hotSpots": [
+            { "pitch": 2, "yaw": -30, "type": "scene", "text": "Cozinha", "sceneId": "cozinha" },
+            { "pitch": -5, "yaw": 120, "type": "scene", "text": "Quarto", "sceneId": "quarto" }
+          ]
+        },
+        "cozinha": {
+          "title": "Cozinha Contemporânea",
+          "hfov": 110,
+          "pitch": 0,
+          "yaw": 90,
+          "type": "equirectangular",
+          "panorama": "https://pannellum.org/images/cerro-toco-0.jpg",
+          "hotSpots": [
+            { "pitch": 5, "yaw": 200, "type": "scene", "text": "Sala", "sceneId": "sala" },
+            { "pitch": 0, "yaw": -10, "type": "scene", "text": "Banheiro", "sceneId": "banheiro" }
+          ]
+        },
+        "quarto": {
+          "title": "Quarto Luxuoso",
+          "hfov": 110,
+          "pitch": 0,
+          "yaw": 45,
+          "type": "equirectangular",
+          "panorama": "https://pannellum.org/images/cerro-toco-1.jpg",
+          "hotSpots": [
+            { "pitch": -2, "yaw": 160, "type": "scene", "text": "Sala", "sceneId": "sala" }
+          ]
+        },
+        "banheiro": {
+          "title": "Banheiro Sofisticado",
+          "hfov": 110,
+          "pitch": 0,
+          "yaw": 270,
+          "type": "equirectangular",
+          "panorama": "https://pannellum.org/images/cerro-toco-2.jpg",
+          "hotSpots": [
+            { "pitch": 1, "yaw": 90, "type": "scene", "text": "Cozinha", "sceneId": "cozinha" }
+          ]
+        }
+      }
+    });
+  </script>
+</body>
+</html>
